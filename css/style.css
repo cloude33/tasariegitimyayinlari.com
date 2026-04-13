@@ -287,15 +287,13 @@ html[data-theme="light"] .theme-toggle:hover {
 }
 
 html[data-theme="light"] .social-btn {
-  background: rgba(26, 58, 107, 0.06);
+  background: #f0f4ff;
   border-color: rgba(26, 58, 107, 0.1);
-  color: var(--primary);
 }
 
 html[data-theme="light"] .social-btn:hover {
-  background: var(--accent);
-  color: #1a0e00;
-  border-color: var(--accent);
+  background: #e4ebff;
+  border-color: currentColor;
 }
 
 /* Social icon buttons */
@@ -313,25 +311,30 @@ html[data-theme="light"] .social-btn:hover {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: var(--transition);
   text-decoration: none;
   flex-shrink: 0;
 }
 
+/* Original Brand Colors */
+.social-btn[aria-label="Facebook"] { color: #1877F2; }
+.social-btn[aria-label="YouTube"] { color: #FF0000; }
+.social-btn[aria-label="Instagram"] { color: #E1306C; }
+.social-btn[aria-label="X (Twitter)"] { color: #ffffff; background: #000; }
+
 .social-btn:hover {
-  background: rgba(245, 166, 35, 0.15);
-  border-color: rgba(245, 166, 35, 0.4);
-  color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: currentColor;
 }
 
 .social-btn svg {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
   display: block;
 }
