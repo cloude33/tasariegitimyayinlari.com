@@ -291,6 +291,11 @@ html[data-theme="light"] .social-btn {
   border-color: rgba(26, 58, 107, 0.1);
 }
 
+html[data-theme="light"] .social-btn[aria-label="X (Twitter)"] {
+  background: #000;
+  color: #fff;
+}
+
 html[data-theme="light"] .social-btn:hover {
   background: #e4ebff;
   border-color: currentColor;
