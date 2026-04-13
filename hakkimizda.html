@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hakkımızda | Tasarı Eğitim Yayınları</title>
   <meta name="description" content="Tasarı Eğitim Yayınları hakkında – 1984'ten bu yana eğitimde öncü kurum." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- No-flash theme init -->
+  <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+
 </head>
 <body>
 
@@ -56,6 +63,7 @@
       <a href="hakkimizda.html" class="active">Hakkımızda</a>
       <a href="iletisim.html">İletişim</a>
       <a href="https://kitap.tasariegitim.com" target="_blank" class="nav-cta">Kitap Satın Al</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Tema Degistir" title="Acik/Koyu Tema">&#9728;&#65039;</button>
     </div>
   </div>
 </nav>

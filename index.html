@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tasarı Eğitim Yayınları | DGS · YÖS · ALES · KPSS</title>
   <meta name="description" content="Tasarı Eğitim Yayınları – 1984'ten bu yana DGS, YÖS, ALES, KPSS ve TYT-AYT alanlarında Türkiye'nin lider eğitim kurumu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- No-flash theme init -->
+  <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
 
@@ -57,40 +62,28 @@
       <a href="hakkimizda.html">Hakkımızda</a>
       <a href="iletisim.html">İletişim</a>
       <a href="https://kitap.tasariegitim.com" target="_blank" class="nav-cta">Kitap Satın Al</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Tema Değiştir" title="Açık/Koyu Tema">☀️</button>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg-slider">
+    <div class="bg-slider-track">
+      <div class="bg-slide" style="background-image: url('images/slider1.png');"></div>
+      <div class="bg-slide" style="background-image: url('images/slider2.png');"></div>
+      <div class="bg-slide" style="background-image: url('images/slider3.png');"></div>
+      <div class="bg-slide" style="background-image: url('images/slider4.png');"></div>
+      <div class="bg-slide" style="background-image: url('images/slider5.png');"></div>
+    </div>
+    <div class="bg-slider-nav">
+      <button class="bg-prev" aria-label="Önceki">❮</button>
+      <button class="bg-next" aria-label="Sonraki">❯</button>
+    </div>
+  </div>
+
   <div class="hero-content">
-    <div class="hero-badge">🏆 Türkiye'nin Lider Sınav Hazırlık Yayınevi</div>
-    <h1>Başarıya Giden Yolda<br /><span>Doğru Yayın, Doğru Kurum</span></h1>
-    <p>1984'ten bu yana DGS, YÖS, ALES, KPSS ve TYT-AYT alanlarında binlerce öğrencinin hayallerine ulaşmasına yardımcı olduk.</p>
-
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong><span data-target="40" data-suffix="+">0+</span></strong>
-        <span>Yıllık Deneyim</span>
-      </div>
-      <div class="hero-stat">
-        <strong><span data-target="14" data-suffix="">0</span></strong>
-        <span>DGS Türkiye 1.si</span>
-      </div>
-      <div class="hero-stat">
-        <strong><span data-target="23" data-suffix=" Yıl">0 Yıl</span></strong>
-        <span>Üst Üste Başarı</span>
-      </div>
-      <div class="hero-stat">
-        <strong><span data-target="5" data-suffix=" Branş">0 Branş</span></strong>
-        <span>Uzman Kadro</span>
-      </div>
-    </div>
-
-    <div class="hero-buttons">
-      <a href="yayinlar.html" class="btn btn-primary">📚 Yayınları İncele</a>
-      <a href="iletisim.html" class="btn btn-outline">📞 Bize Ulaşın</a>
-    </div>
   </div>
 </section>
 
@@ -152,17 +145,17 @@
       <p>Bireysel veya kurumsal ihtiyaçlarınıza göre iki farklı satış kanalımız mevcuttur.</p>
     </div>
     <div class="cards-grid" style="grid-template-columns: 1fr 1fr;">
-      <div class="card fade-in" style="border-top: 4px solid var(--primary);">
-        <div class="card-icon" style="background:#dbeafe; font-size:2rem;">🛒</div>
+      <div class="card fade-in" style="border-top: 3px solid var(--primary-light);">
+        <div class="card-icon" style="font-size:2rem;">🛒</div>
         <h3>Bireysel Satış</h3>
-        <p>Yayınlarımızın bireysel satışı için <strong>kitap.tasariegitim.com</strong> adresimizi kullanabilirsiniz. Hızlı, yeni ve güvenilir altyapısı ile alışverişte doğru adrestesiniz.</p>
+        <p>Yayınlarımızın bireysel satışı için <strong style="color:var(--accent);">kitap.tasariegitim.com</strong> adresimizi kullanabilirsiniz. Hızlı, yeni ve güvenilir altyapısı ile alışverişte doğru adrestesiniz.</p>
         <a href="https://kitap.tasariegitim.com" target="_blank" class="btn btn-primary" style="margin-top:20px; display:inline-flex;">Kitap Mağazasına Git →</a>
       </div>
-      <div class="card fade-in" style="border-top: 4px solid var(--accent);">
-        <div class="card-icon" style="background:#fef9c3; font-size:2rem;">🏢</div>
+      <div class="card fade-in" style="border-top: 3px solid var(--accent);">
+        <div class="card-icon" style="font-size:2rem;">🏢</div>
         <h3>Kurumsal Satış</h3>
         <p>Kurumsal satış kanalımız ile iletişime geçerek yayınlarımızın güncel baskılarına erişebilir, toplu satın alma işlemini gerçekleştirebilirsiniz.</p>
-        <a href="iletisim.html" class="btn btn-primary" style="margin-top:20px; display:inline-flex; background:var(--accent);">Kurumsal İletişim →</a>
+        <a href="iletisim.html" class="btn btn-primary" style="margin-top:20px; display:inline-flex;">Kurumsal İletişim →</a>
       </div>
     </div>
   </div>
@@ -239,11 +232,19 @@
         <li><a href="#">📍 Hatboyu Cad. Meydan İş Hanı No:4 Kat:1 D:26 Bakırköy/İstanbul</a></li>
         <li><a href="#">⏰ Hafta içi - Hafta Sonu 09:00–20:00</a></li>
       </ul>
-      <div style="display:flex;gap:10px;margin-top:16px;">
-        <a href="https://www.facebook.com/tasariegitimkurumlari" target="_blank" style="opacity:.7;font-size:12px;">FB</a>
-        <a href="https://twitter.com/tasari_egitim" target="_blank" style="opacity:.7;font-size:12px;">TW</a>
-        <a href="https://instagram.com/tasariegitimkurumlari" target="_blank" style="opacity:.7;font-size:12px;">IG</a>
-        <a href="https://www.youtube.com/channel/UCTikF9YhW2kF-fbEutcNASQ" target="_blank" style="opacity:.7;font-size:12px;">YT</a>
+      <div class="social-links">
+        <a href="https://x.com/tasari_egitim" target="_blank" rel="noopener" class="social-btn" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.845L1.5 2.25h6.312l4.263 5.629L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/tasariegitimkurumlari" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCTikF9YhW2kF-fbEutcNASQ" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/tasariegitimkurumlari" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
       </div>
     </div>
   </div>
