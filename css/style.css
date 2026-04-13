@@ -324,10 +324,22 @@ html[data-theme="light"] .social-btn:hover {
 }
 
 /* Original Brand Colors */
-.social-btn[aria-label="Facebook"] { color: #1877F2; }
-.social-btn[aria-label="YouTube"] { color: #FF0000; }
-.social-btn[aria-label="Instagram"] { color: #E1306C; }
-.social-btn[aria-label="X (Twitter)"] { color: #ffffff; background: #000; }
+.social-btn[aria-label="Facebook"] {
+  color: #1877F2;
+}
+
+.social-btn[aria-label="YouTube"] {
+  color: #FF0000;
+}
+
+.social-btn[aria-label="Instagram"] {
+  color: #E1306C;
+}
+
+.social-btn[aria-label="X (Twitter)"] {
+  color: #ffffff;
+  background: #000;
+}
 
 .social-btn:hover {
   transform: translateY(-4px);
@@ -657,7 +669,8 @@ html[data-theme="light"] .nav-logo .logo-icon img {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center 22%; /* Adjusted to show faces */
+  background-position: center 22%;
+  /* Adjusted to show faces */
 }
 
 .bg-slider-nav button {
@@ -687,8 +700,13 @@ html[data-theme="light"] .nav-logo .logo-icon img {
   transform: translateY(-50%) scale(1.1);
 }
 
-.bg-prev { left: 32px; }
-.bg-next { right: 32px; }
+.bg-prev {
+  left: 32px;
+}
+
+.bg-next {
+  right: 32px;
+}
 
 .hero-bg-slider::after {
   content: '';
@@ -830,7 +848,7 @@ html[data-theme="light"] .hero-content {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   width: 44px;
@@ -852,8 +870,13 @@ html[data-theme="light"] .hero-content {
   transform: translateY(-50%) scale(1.1);
 }
 
-.prev-slide { left: 20px; }
-.next-slide { right: 20px; }
+.prev-slide {
+  left: 20px;
+}
+
+.next-slide {
+  right: 20px;
+}
 
 .slider-dots {
   position: absolute;
@@ -869,7 +892,7 @@ html[data-theme="light"] .hero-content {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -1586,16 +1609,16 @@ html[data-theme="light"] .btn-outline:hover {
   color: #fff;
   display: block;
   margin-bottom: 4px;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero-stat span {
   font-size: 13px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .footer-brand p {
