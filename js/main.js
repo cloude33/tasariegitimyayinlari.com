@@ -1,7 +1,3 @@
-/* =============================================
-   TASARI EĞİTİM – main.js  (Premium v2)
-   ============================================= */
-
 // ===== LOGO LOAD =====
 const logoImgs = document.querySelectorAll('.logo-icon img');
 logoImgs.forEach(img => {
@@ -299,3 +295,337 @@ if (bgTrack && bgSlides.length > 0) {
 
   startBgTimer();
 }
+
+// ===== CONSULTATION MODAL SYSTEM =====
+function openConsultationModal(type) {
+  // Remove existing modal if any
+  const existingModal = document.querySelector('.consultation-modal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  const modalContent = getModalContent(type);
+  
+  const modal = document.createElement('div');
+  modal.className = 'consultation-modal';
+  modal.innerHTML = `
+    <div class="modal-overlay" onclick="closeConsultationModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeConsultationModal()" aria-label="Kapat">×</button>
+      ${modalContent}
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
+  
+  // Add entrance animation
+  setTimeout(() => {
+    modal.classList.add('show');
+  }, 10);
+}
+
+function getModalContent(type) {
+  const contents = {
+    hedef: {
+      title: '🎯 Hedef Belirleme Danışmanlığı',
+      form: `
+        <form class="consultation-form" onsubmit="submitConsultation(event, 'hedef')">
+          <div class="form-group">
+            <label>Adınız Soyadınız</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label>E-posta</label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label>Hedeflediğiniz Sınav</label>
+            <select name="exam" required>
+              <option value="">Seçiniz...</option>
+              <option value="dgs">DGS</option>
+              <option value="yos">YÖS</option>
+              <option value="ales">ALES</option>
+              <option value="kpss">KPSS</option>
+              <option value="tyt">TYT-AYT</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Kariyer Hedefiniz</label>
+            <textarea name="goal" rows="3" placeholder="Kariyer hedeflerinizi kısaca yazın..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Danışmanlık Talebi Gönder</button>
+        </form>
+      `
+    },
+    analiz: {
+      title: '📊 Performans Analizi',
+      form: `
+        <form class="consultation-form" onsubmit="submitConsultation(event, 'analiz')">
+          <div class="form-group">
+            <label>Adınız Soyadınız</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label>Hazırlık Olduğunuz Sınav</label>
+            <select name="exam" required>
+              <option value="">Seçiniz...</option>
+              <option value="dgs">DGS</option>
+              <option value="yos">YÖS</option>
+              <option value="ales">ALES</option>
+              <option value="kpss">KPSS</option>
+              <option value="tyt">TYT-AYT</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mevcut Bilgi Seviyeniz</label>
+            <select name="level" required>
+              <option value="">Seçiniz...</option>
+              <option value="baslangic">Başlangıç</option>
+              <option value="orta">Orta</option>
+              <option value="ileri">İleri</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Önceki Sınav Sonuçlarınız (varsa)</label>
+            <textarea name="results" rows="2" placeholder="Önceki sınav sonuçlarınızı yazın..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Analiz Talebi Gönder</button>
+        </form>
+      `
+    },
+    program: {
+      title: '📅 Çalışma Programı Oluşturma',
+      form: `
+        <form class="consultation-form" onsubmit="submitConsultation(event, 'program')">
+          <div class="form-group">
+            <label>Adınız Soyadınız</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label>Sınav Tarihi</label>
+            <input type="date" name="examDate" required>
+          </div>
+          <div class="form-group">
+            <label>Günlük Çalışma Süreniz</label>
+            <select name="studyTime" required>
+              <option value="">Seçiniz...</option>
+              <option value="1-2">1-2 saat</option>
+              <option value="3-4">3-4 saat</option>
+              <option value="5-6">5-6 saat</option>
+              <option value="6+">6+ saat</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Zorlandığınız Konular</label>
+            <textarea name="difficulties" rows="3" placeholder="Zorlandığınız konuları yazın..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Program Talebi Gönder</button>
+        </form>
+      `
+    }
+  };
+
+  const content = contents[type] || contents.hedef;
+  return `
+    <h3>${content.title}</h3>
+    <p>Uzman eğitim danışmanlarımız sizinle iletişime geçecektir.</p>
+    ${content.form}
+  `;
+}
+
+function closeConsultationModal() {
+  const modal = document.querySelector('.consultation-modal');
+  if (modal) {
+    modal.classList.remove('show');
+    setTimeout(() => {
+      modal.remove();
+      document.body.style.overflow = '';
+    }, 300);
+  }
+}
+
+function submitConsultation(event, type) {
+  event.preventDefault();
+  
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+  
+  // Add consultation type
+  data.type = type;
+  data.timestamp = new Date().toISOString();
+  
+  // Show loading state
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Gönderiliyor...';
+  submitBtn.disabled = true;
+  
+  // Simulate API call (replace with actual API endpoint)
+  setTimeout(() => {
+    console.log('Consultation data:', data);
+    
+    // Show success message
+    showToast('✅ Danışmanlık talebiniz başarıyla alındı! En kısa sürede sizinle iletişime geçeceğiz.');
+    
+    // Reset form and close modal
+    form.reset();
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+    closeConsultationModal();
+    
+    // Send to actual API (uncomment and implement)
+    // fetch('/api/consultation', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+  }, 1500);
+}
+
+// ===== ENHANCED SEARCH FUNCTIONALITY =====
+function initializeSearch() {
+  const searchInput = document.getElementById('searchInput');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      filterBooks(searchTerm);
+    });
+  }
+  
+  if (filterButtons.length > 0) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter by category
+        const category = btn.dataset.filter;
+        filterBooksByCategory(category);
+      });
+    });
+  }
+}
+
+function filterBooks(searchTerm) {
+  const books = document.querySelectorAll('.book-card, .pub-card');
+  books.forEach(book => {
+    const title = book.querySelector('h3')?.textContent.toLowerCase() || '';
+    const description = book.querySelector('p')?.textContent.toLowerCase() || '';
+
+    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+      book.style.display = 'block';
+      setTimeout(() => book.classList.add('visible'), 100);
+    } else {
+      book.style.display = 'none';
+    }
+  });
+}
+
+// ===== EXAM COUNTDOWN TIMER =====
+const examDates = {
+  tyt:  new Date('2026-06-20T10:15:00'),
+  dgs:  new Date('2026-07-19T09:30:00'),
+  ales: new Date('2026-07-26T09:30:00'),
+  kpss: new Date('2026-09-01T09:30:00')
+};
+
+function updateCountdown(exam, targetDate) {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    document.getElementById(`${exam}-days`).textContent = '0';
+    document.getElementById(`${exam}-hours`).textContent = '0';
+    document.getElementById(`${exam}-minutes`).textContent = '0';
+    document.getElementById(`${exam}-seconds`).textContent = '0';
+    return;
+  }
+
+  const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById(`${exam}-days`).textContent = days;
+  document.getElementById(`${exam}-hours`).textContent = hours;
+  document.getElementById(`${exam}-minutes`).textContent = minutes;
+  document.getElementById(`${exam}-seconds`).textContent = seconds;
+}
+
+function initCountdowns() {
+  if (!document.querySelector('.exam-countdown-section')) return;
+
+  Object.entries(examDates).forEach(([exam, date]) => {
+    updateCountdown(exam, date);
+    setInterval(() => updateCountdown(exam, date), 1000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initCountdowns);
+
+function filterBooksByCategory(category) {
+  const books = document.querySelectorAll('.book-card, .pub-card');
+  books.forEach(book => {
+    if (category === 'all' || book.dataset.category === category) {
+      book.style.display = 'block';
+      setTimeout(() => book.classList.add('visible'), 100);
+    } else {
+      book.style.display = 'none';
+    }
+  });
+}
+
+// ===== ENHANCED COUNTER ANIMATION =====
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 2000;
+  const fps = 60;
+  const steps = duration / (1000 / fps);
+  const step = target / steps;
+  let current = 0;
+
+  const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  let frame = 0;
+
+  const timer = setInterval(() => {
+    frame++;
+    const progress = frame / steps;
+    current = target * ease(Math.min(progress, 1));
+    el.textContent = Math.floor(current) + suffix;
+
+    if (progress >= 1) {
+      el.textContent = target + suffix;
+      clearInterval(timer);
+    }
+  }, 1000 / fps);
+}
+
+// Initialize search functionality when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  initializeSearch();
+  
+  // Add keyboard support for modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeConsultationModal();
+    }
+  });
+});

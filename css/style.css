@@ -651,6 +651,528 @@ html[data-theme="light"] .nav-logo .logo-icon img {
   background: #080e24;
 }
 
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  padding: 7px 20px;
+  border-radius: 50px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 28px;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--accent), #ffd07a, var(--accent));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite, fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.hero-stat {
+  text-align: center;
+  padding: 8px 32px;
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+}
+
+.hero-stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--border);
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #ffc04a;
+  text-shadow: 0 2px 10px rgba(255, 192, 74, 0.4);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.hero-stat span {
+  font-size: 15px;
+  color: #f1f5f9;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== CONSULTING SECTION ===== */
+.consulting-section {
+  padding: 90px 28px;
+  background: linear-gradient(135deg, rgba(15, 31, 71, 0.8), rgba(30, 61, 106, 0.6));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.consulting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.consulting-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.consulting-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.consulting-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(245, 166, 35, 0.2);
+  border-color: rgba(245, 166, 35, 0.3);
+}
+
+.consulting-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.15), rgba(245, 166, 35, 0.05));
+  border: 2px solid rgba(245, 166, 35, 0.2);
+  transition: all 0.3s ease;
+}
+
+.consulting-card:hover .consulting-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.25), rgba(245, 166, 35, 0.1));
+  border-color: var(--accent);
+}
+
+.consulting-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.consulting-card p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.consulting-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #1a0e00;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.2px;
+  box-shadow: var(--shadow-accent);
+}
+
+.consulting-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(245, 166, 35, 0.5);
+  background: linear-gradient(135deg, #ffc04a, var(--accent));
+}
+
+/* Light theme for consulting section */
+html[data-theme="light"] .consulting-section {
+  background: linear-gradient(135deg, rgba(238, 242, 251, 0.9), rgba(255, 255, 255, 0.95));
+}
+
+html[data-theme="light"] .consulting-card {
+  background: #ffffff;
+  border-color: rgba(26, 58, 107, 0.1);
+}
+
+html[data-theme="light"] .consulting-card h3 {
+  color: var(--primary);
+}
+
+html[data-theme="light"] .consulting-card p {
+  color: var(--light-muted);
+}
+
+html[data-theme="light"] .consulting-icon {
+  background: linear-gradient(135deg, rgba(26, 58, 107, 0.08), rgba(26, 58, 107, 0.04));
+  border-color: rgba(26, 58, 107, 0.12);
+}
+
+html[data-theme="light"] .consulting-card:hover .consulting-icon {
+  background: linear-gradient(135deg, rgba(26, 58, 107, 0.12), rgba(26, 58, 107, 0.06));
+  border-color: var(--primary);
+}
+
+/* ===== CONSULTATION MODAL ===== */
+.consultation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.consultation-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.consultation-modal.show .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: var(--accent);
+  color: #1a0e00;
+  transform: rotate(90deg);
+}
+
+.consultation-form {
+  margin-top: 24px;
+}
+
+.consultation-form .form-group {
+  margin-bottom: 20px;
+}
+
+.consultation-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.consultation-form input,
+.consultation-form select,
+.consultation-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.consultation-form input:focus,
+.consultation-form select:focus,
+.consultation-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+}
+
+.consultation-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.consultation-form .btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 24px;
+  font-size: 15px;
+}
+
+/* Light theme for modal */
+html[data-theme="light"] .modal-content {
+  background: #ffffff;
+  border-color: rgba(26, 58, 107, 0.1);
+}
+
+html[data-theme="light"] .consultation-form label {
+  color: var(--primary);
+}
+
+html[data-theme="light"] .consultation-form input,
+html[data-theme="light"] .consultation-form select,
+html[data-theme="light"] .consultation-form textarea {
+  background: #f8faff;
+  border-color: rgba(26, 58, 107, 0.12);
+  color: #1e2235;
+}
+
+html[data-theme="light"] .consultation-form input:focus,
+html[data-theme="light"] .consultation-form select:focus,
+html[data-theme="light"] .consultation-form textarea:focus {
+  border-color: var(--accent);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+}
+
+/* ===== SEARCH SECTION ===== */
+.search-container {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.search-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  backdrop-filter: blur(8px);
+}
+
+.search-box input {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: var(--text-dim);
+}
+
+.search-btn {
+  padding: 14px 20px;
+  background: var(--accent);
+  color: #1a0e00;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: var(--accent-dark);
+  transform: scale(1.05);
+}
+
+.search-filters {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: #1a0e00;
+  border-color: var(--accent);
+}
+
+/* Light theme for search */
+html[data-theme="light"] .search-box {
+  background: #ffffff;
+  border-color: rgba(26, 58, 107, 0.1);
+}
+
+html[data-theme="light"] .search-box input {
+  color: var(--primary);
+}
+
+html[data-theme="light"] .filter-btn {
+  background: rgba(26, 58, 107, 0.05);
+  border-color: rgba(26, 58, 107, 0.1);
+  color: var(--light-muted);
+}
+
+html[data-theme="light"] .filter-btn:hover {
+  background: rgba(26, 58, 107, 0.08);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ===== RESPONSIVE MODAL ===== */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 20px;
+    padding: 30px 24px;
+    max-width: calc(100% - 40px);
+  }
+  
+  .modal-close {
+    top: 16px;
+    right: 16px;
+  }
+  
+  .consultation-form .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .search-box {
+    flex-direction: column;
+  }
+  
+  .search-btn {
+    width: 100%;
+  }
+}
+
 .hero-bg-slider {
   position: absolute;
   inset: 0;
@@ -709,11 +1231,7 @@ html[data-theme="light"] .nav-logo .logo-icon img {
 }
 
 .hero-bg-slider::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 14, 36, 0.45) 0%, rgba(8, 14, 36, 0.85) 100%);
-  z-index: 2;
+  content: none; /* Removed the dark filter */
 }
 
 html[data-theme="light"] .hero {
@@ -724,12 +1242,7 @@ html[data-theme="light"] .hero {
 
 /* Animated gradient background */
 .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(30, 61, 143, 0.3) 0%, transparent 70%);
-  animation: heroGlow 6s ease-in-out infinite alternate;
-  pointer-events: none;
+  content: none; /* Removed the animated glow */
 }
 
 @keyframes heroGlow {
@@ -742,19 +1255,9 @@ html[data-theme="light"] .hero {
   }
 }
 
-/* Floating orbs */
+/* Floating orbs removed for clarity */
 .hero::after {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(30, 61, 143, 0.18) 0%, transparent 70%);
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: float 6s ease-in-out infinite;
-  pointer-events: none;
+  content: none;
 }
 
 @keyframes float {
@@ -1672,6 +2175,138 @@ html[data-theme="light"] .btn-outline:hover {
 
 .footer-bottom a:hover {
   color: var(--accent);
+}
+
+/* ===== SINAV SAYACI ===== */
+.exam-countdown-section {
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(15, 31, 71, 0.15) 100%);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.countdown-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.countdown-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.countdown-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-accent);
+  border-color: var(--border-accent);
+}
+
+.countdown-card:hover::before {
+  opacity: 1;
+}
+
+.countdown-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #1a0e00;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  align-self: center;
+}
+
+.countdown-exam-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.countdown-date {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+  padding: 10px 6px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.countdown-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-value.days {
+  color: #ef4444;
+}
+
+.countdown-label {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Light theme support for countdown */
+html[data-theme="light"] .countdown-card {
+  background: var(--light-card);
+  border-color: var(--light-border);
+}
+
+html[data-theme="light"] .countdown-unit {
+  background: rgba(26, 58, 107, 0.04);
+  border-color: rgba(26, 58, 107, 0.08);
+}
+
+html[data-theme="light"] .countdown-value {
+  color: var(--primary-light);
+}
+
+html[data-theme="light"] .countdown-value.days {
+  color: #dc2626;
 }
 
 /* ===== PAGE HERO (inner pages) ===== */
