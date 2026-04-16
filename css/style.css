@@ -268,6 +268,7 @@ html[data-theme="light"] .pdf-download {
   margin-left: 6px;
   flex-shrink: 0;
   user-select: none;
+  z-index: 1001; /* Ensure it stays above everything */
 }
 
 .theme-toggle:hover {
@@ -279,6 +280,7 @@ html[data-theme="light"] .pdf-download {
 html[data-theme="light"] .theme-toggle {
   border-color: rgba(26, 58, 107, 0.15);
   background: rgba(255, 255, 255, 0.85);
+  color: var(--primary);
 }
 
 html[data-theme="light"] .theme-toggle:hover {
@@ -451,6 +453,24 @@ ul {
   align-items: center;
   justify-content: space-between;
   height: 72px;
+  gap: 20px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  order: 2; /* Desktop: after logo, before links? No, usually actions are at the end */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  order: 1; /* Desktop: middle */
+  flex: 1;
+  justify-content: flex-end;
+  margin-right: 12px;
 }
 
 .nav-logo {
@@ -641,7 +661,8 @@ html[data-theme="light"] .nav-logo .logo-icon img {
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 550px;
+  aspect-ratio: 16 / 7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1191,8 +1212,8 @@ html[data-theme="light"] .filter-btn:hover {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center 22%;
-  /* Adjusted to show faces */
+  background-position: center center;
+  /* Balanced centering */
 }
 
 .bg-slider-nav button {
@@ -2902,6 +2923,22 @@ html[data-theme="light"] .countdown-value.days {
 
 /* ===== MOBILE NAV ===== */
 @media (max-width: 968px) {
+  .nav-inner {
+    padding: 0 20px;
+    gap: 10px;
+  }
+
+  .nav-links {
+    margin-right: 0;
+    order: 3;
+  }
+
+  .nav-actions {
+    order: 2;
+    z-index: 1000;
+    position: relative;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -2913,7 +2950,7 @@ html[data-theme="light"] .countdown-value.days {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(5, 10, 28, 0.97);
+    background: var(--bg-card);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 90px 32px 40px;
@@ -2940,14 +2977,15 @@ html[data-theme="light"] .countdown-value.days {
   .dropdown {
     position: static;
     box-shadow: none;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-glass);
     margin-top: 4px;
     border-radius: var(--radius-sm);
-    border-color: var(--border);
+    border: 1px solid var(--border);
   }
 
   .hero {
-    min-height: 70vh;
+    min-height: 480px;
+    aspect-ratio: 16 / 9;
     padding: 80px 20px 60px;
   }
 
