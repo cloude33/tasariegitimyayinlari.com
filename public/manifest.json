@@ -1,0 +1,18 @@
+{
+  "name": "Tasarı Eğitim Yayınları",
+  "short_name": "Tasarı",
+  "description": "Tasarı Eğitim Yayınları Çözüm ve Kitap Platformu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1e36",
+  "theme_color": "#0d1e36",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "400x123 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

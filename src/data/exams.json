@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "TR-YÖS/1", "date": "2026-05-17T10:00:00", "info": "Yabancı Uyruklu Öğrenci Sınavı", "color": "#194750" },
+  { "id": 7, "name": "YKS (TYT)", "date": "2026-06-20T10:15:00", "info": "Yükseköğretim Kurumları Sınavı 1. Oturum", "color": "#ef4444" },
+  { "id": 8, "name": "YKS (AYT)", "date": "2026-06-21T10:15:00", "info": "Yükseköğretim Kurumları Sınavı 2. Oturum", "color": "#8b5cf6" },
+  { "id": 9, "name": "YKS (YDT)", "date": "2026-06-21T15:45:00", "info": "Yükseköğretim Kurumları Sınavı 3. Oturum", "color": "#3b82f6" },
+  { "id": 2, "name": "DGS", "date": "2026-07-19T10:15:00", "info": "Dikey Geçiş Sınavı", "color": "#cd7e3b" },
+  { "id": 3, "name": "ALES-2", "date": "2026-07-26T10:15:00", "info": "Akademik Personel Sınavı", "color": "#10b981" },
+  { "id": 4, "name": "KPSS Lisans", "date": "2026-09-06T10:15:00", "info": "Kamu Personeli Seçme Sınavı", "color": "#06b6d4" },
+  { "id": 6, "name": "ALES-3", "date": "2026-11-22T10:15:00", "info": "Akademik Personel Sınavı", "color": "#ec4899" }
+]

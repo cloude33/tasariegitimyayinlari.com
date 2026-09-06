@@ -1,0 +1,314 @@
+.page {
+  background: #f4f6f8;
+  min-height: 100vh;
+  font-family: var(--font-main, 'Inter', sans-serif);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #091b22 0%, #153842 50%, #1a4a56 100%);
+  padding: 80px 24px 140px; /* Extra bottom padding for overlap */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative orbs */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(255, 185, 60, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -5%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(181, 69, 27, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -1.5px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.heroAccent {
+  color: #ffb93c;
+  background: linear-gradient(90deg, #ffb93c, #f9a01b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Needed for text gradient */
+}
+
+/* ===== MAIN CARD ===== */
+.mainSection {
+  padding: 0 24px 80px;
+  max-width: 860px;
+  margin: -80px auto 0; /* OVERLAP MAGIC */
+  position: relative;
+  z-index: 10;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.03);
+  border: 1px solid rgba(255,255,255,0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TABS (Segmented Control) ===== */
+.tabsContainer {
+  padding: 32px 32px 0;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(26, 74, 86, 0.04);
+  border-radius: 14px;
+  padding: 6px;
+  position: relative;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 16px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #777;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.tabBtn:hover:not(.tabBtnActive) {
+  color: #1a4a56;
+  background: rgba(26, 74, 86, 0.05);
+}
+
+.tabBtnActive {
+  color: #b5451b;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* ===== PANEL ===== */
+.panel {
+  padding: 40px 32px 48px;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panelInner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.bookIcon {
+  width: 130px;
+  height: 130px;
+  min-width: 130px;
+  background: linear-gradient(135deg, #f2f7f8 0%, #e1eff2 100%);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a4a56;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 8px 24px rgba(26,74,86,0.08);
+  border: 1px solid rgba(255,255,255,0.5);
+  position: relative;
+}
+.bookIcon svg {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 4px 8px rgba(26,74,86,0.15));
+}
+
+.bookIconOld {
+  background: linear-gradient(135deg, #fdf8f5 0%, #f4e9e4 100%);
+  color: #b5451b;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 8px 24px rgba(181,69,27,0.08);
+}
+.bookIconOld svg {
+  filter: drop-shadow(0 4px 8px rgba(181,69,27,0.15));
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  background: linear-gradient(180deg, #c7562a 0%, #b5451b 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 8px 24px rgba(181,69,27,0.25), 
+    inset 0 1px 1px rgba(255,255,255,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.actionBtn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.actionBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 32px rgba(181,69,27,0.35), 
+    inset 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.actionBtn:hover::after {
+  opacity: 1;
+}
+
+.actionBtn svg {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== CONTACT BAR ===== */
+.contactBar {
+  max-width: 860px;
+  margin: 0 auto 80px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contactIconWrap {
+  width: 52px;
+  height: 52px;
+  background: rgba(26, 74, 86, 0.04);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a4a56;
+}
+
+.contactIconWrap svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contactLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #999;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.contactValue {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+}
+
+.contactLink {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #b5451b;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactLink:hover {
+  color: #9a3a15;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px 100px;
+  }
+  .mainSection {
+    margin-top: -60px;
+    padding: 0 16px 60px;
+  }
+  .tabsContainer {
+    padding: 24px 20px 0;
+  }
+  .panel {
+    padding: 32px 20px 40px;
+  }
+  .panelInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  .contactBar {
+    margin: 0 16px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+  }
+}
